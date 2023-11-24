@@ -1,6 +1,6 @@
 "use client";
 
-import { PhoneNumber, Phonebook } from "@/common/types";
+import { PhoneNumber, Phonebook } from "@/constants/types";
 import {
   ADD_CONTACT,
   EDIT_CONTACT,
@@ -152,7 +152,7 @@ export default function CrudComponent({
                 flex: 1;
             }
             label {
-                width: 130px;
+                min-width: 100px;
             }
         }
 
@@ -172,9 +172,11 @@ export default function CrudComponent({
             align-items: center;
             gap: 0.5rem;
             justify-content: space-between;
+            min-width: 250px;
         }
         input {
             font-size: 14px;
+            min-width: 20%;
         }
         .phone-number {
             width: fit-content;
@@ -188,6 +190,8 @@ export default function CrudComponent({
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            min-width: fit-content;
+            flex: none;
         }
         }
         `)}

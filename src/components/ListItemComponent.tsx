@@ -1,5 +1,5 @@
 "use client";
-import { Phonebook } from "@/common/types";
+import { Phonebook } from "@/constants/types";
 import { DELETE_CONTACT } from "@/constants/Queries";
 import { usePhonebook } from "@/context/PhonebookContext";
 import { useSessionStorage } from "@/context/SessionStorageContext";

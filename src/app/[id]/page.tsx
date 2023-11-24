@@ -19,7 +19,7 @@ export default function Page(props: Props) {
   };
 
   return (
-    <main>
+    <main data-testid="page-component">
       <div className="header">{title}</div>
       <div className="content">
         <CrudComponent id={props.params.id} navigateBack={navigateBack} isEditMode={isEditMode} />

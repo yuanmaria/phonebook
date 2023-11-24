@@ -75,6 +75,7 @@ export const globalStyles = (
         padding: 0.5rem;
         border-radius: 4px;
         border: solid 1px var(--border-color);
+        overflow: scroll;
         ${mq[1]} {
           width: 70%;
         }

@@ -1,5 +1,5 @@
 "use client";
-import { PhonebookContext } from "@/common/types";
+import { PhonebookContext } from "@/constants/types";
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 // Create a context

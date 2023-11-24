@@ -12,11 +12,8 @@ import {
   PhonebookContextType,
   PhonebookProviderProps,
   searchQuery,
-} from "@/common/types";
-import {
-  GET_CONTACT_LIST,
-  PER_PAGE,
-} from "@/constants/Queries";
+} from "@/constants/types";
+import { GET_CONTACT_LIST, PER_PAGE } from "@/constants/Queries";
 import { useLazyQuery } from "@apollo/client";
 import { useSessionStorage } from "./SessionStorageContext";
 
@@ -28,17 +25,15 @@ const PhonebookContext = createContext<PhonebookContextType | undefined>(
 export const PhonebookProvider: React.FC<PhonebookProviderProps> = ({
   children,
 }) => {
-  const [getPhonebookList, { data: _contactData, loading, error }] = useLazyQuery(
-    GET_CONTACT_LIST,
-    { fetchPolicy: "network-only" }
-  );
+  const [getPhonebookList, { data: _contactData, loading, error }] =
+    useLazyQuery(GET_CONTACT_LIST, { fetchPolicy: "network-only" });
   const { sessionData, saveDataToSessionStorage } = useSessionStorage();
 
   const callGetPhonebookList = useCallback((query: searchQuery) => {
     return new Promise<Phonebook[]>((resolve, reject) => {
       getPhonebookList({ variables: query })
         .then((res) => {
-          resolve(res.data.contact);
+          resolve(res.data?.contact || []);
         })
         .catch((error) => {
           reject(error);
@@ -94,7 +89,7 @@ export const PhonebookProvider: React.FC<PhonebookProviderProps> = ({
   };
 
   useEffect(() => {
-    if(!sessionData) {
+    if (!sessionData) {
       fetchData(sessionData);
     }
   }, [sessionData]);
@@ -126,7 +121,7 @@ export const PhonebookProvider: React.FC<PhonebookProviderProps> = ({
       limit,
       offset,
       order_by: { id: "desc" },
-      where: {}
+      where: {},
     };
 
     query.where = {};
@@ -139,9 +134,9 @@ export const PhonebookProvider: React.FC<PhonebookProviderProps> = ({
       };
     }
     if (favList.length) {
-        query.where.id = shouldQueryFavorite
-          ? { _in: favList }
-          : { _nin: favList };
+      query.where.id = shouldQueryFavorite
+        ? { _in: favList }
+        : { _nin: favList };
     }
     return query;
   };
@@ -151,7 +146,7 @@ export const PhonebookProvider: React.FC<PhonebookProviderProps> = ({
     () => ({
       updateSearchQuery,
       resetSearchQuery,
-      loading
+      loading,
     }),
     [updateSearchQuery, resetSearchQuery, loading]
   );
