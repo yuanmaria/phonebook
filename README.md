@@ -1,8 +1,28 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+You can also access the deployed project from [https://phonebook-pi-eight.vercel.app/](https://phonebook-pi-eight.vercel.app/)
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/)
+- [Apollo Client](https://www.apollographql.com/docs/react/)
+- [Emotion](https://emotion.sh/docs/introduction)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
 ## Getting Started
 
-First, run the development server:
+First, run the install:
+
+```bash
+npm i
+# or
+yarn i
+# or
+pnpm i
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -10,15 +30,35 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+For the unit test, run jest: 
+
+```bash
+npm run test
+# or
+yarn test
+# or
+pnpm run test
+```
+
+Or add `:ci` at the end of command to prevent watch. 
+
+## Deployment
+
+Preparing budle for deployment:
+
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm run build
+```
 
 ## Learn More
 
@@ -28,9 +68,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
